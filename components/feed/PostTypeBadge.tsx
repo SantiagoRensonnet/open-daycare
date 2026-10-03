@@ -13,7 +13,7 @@ export function PostTypeBadge({ type }: { type: PostType }) {
   return (
     <div className={`flex items-center gap-[7px] rounded-full px-3 py-1.5 ${badge.className}`}>
       <span className={`size-2 rounded-full ${badge.dotClassName}`} />
-      <span className="text-xs font-extrabold tracking-[.5px] uppercase">{POST_TYPE_LABELS[type]}</span>
+      <span className="text-[12px] font-extrabold tracking-[.5px] uppercase">{POST_TYPE_LABELS[type]}</span>
     </div>
   );
 }

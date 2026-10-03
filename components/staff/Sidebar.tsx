@@ -33,14 +33,14 @@ export function Sidebar({ user, classroom }: { user: StaffMember; classroom: Cla
 
       <div className="mt-2.5 border-t border-line pt-3.5">
         <div className="flex items-center gap-[11px] px-2 py-1.5">
-          <div className="flex size-[38px] flex-none items-center justify-center rounded-full bg-accent font-display text-base font-semibold text-white">
+          <div className="flex size-[38px] flex-none items-center justify-center rounded-full bg-accent font-display text-[16px] font-semibold text-white">
             {user.firstName.charAt(0)}
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-extrabold text-ink">
+            <div className="text-[14px] font-extrabold text-ink">
               {user.firstName} {user.lastName}
             </div>
-            <div className="text-xs text-subtle">
+            <div className="text-[12px] text-subtle">
               {ROLE_LABELS[user.role]} · {classroom.name}
             </div>
           </div>

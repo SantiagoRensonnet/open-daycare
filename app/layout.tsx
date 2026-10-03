@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es-419"
       className={`${fredoka.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-cream font-sans text-ink">{children}</body>
+      <body className="min-h-full bg-cream font-sans leading-[normal] text-ink">{children}</body>
     </html>
   );
 }

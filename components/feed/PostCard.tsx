@@ -57,20 +57,20 @@ export function PostCard({ post, author, child, isOwn }: PostCardProps) {
       )}
 
       <div className="mt-4 flex items-center gap-[18px] border-t border-line-soft pt-3.5">
-        <span className="flex items-center gap-[7px] text-sm font-bold text-accent-strong">
+        <span className="flex items-center gap-[7px] text-[14px] font-bold text-accent-strong">
           <HeartIcon size={19} />
           {post.reactionCount}
         </span>
         <Link
           href={routes.postDetail(post.id)}
-          className="flex items-center gap-[7px] text-sm font-bold text-muted"
+          className="flex items-center gap-[7px] text-[14px] font-bold text-muted"
         >
           <MessageIcon size={18} />
           {post.commentCount}
         </Link>
         <span className="flex-1" />
         {isOwn && (
-          <Link href={routes.postEdit(post.id)} className="text-sm font-extrabold text-edit">
+          <Link href={routes.postEdit(post.id)} className="text-[14px] font-extrabold text-edit">
             Editar
           </Link>
         )}

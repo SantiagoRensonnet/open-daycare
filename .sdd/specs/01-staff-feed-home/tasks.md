@@ -36,7 +36,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass. In the browser, the cards appear in the order p1, p2, p3, p4, and `p0` is absent. `p4` says "publicado por Lucía" with no "Editar". Only `p2` has the photo box. Clicking the heart changes nothing. The comment counts, the photo and "Editar" go to `/posts/<id>`, `/posts/<id>/photo` and `/posts/<id>/edit` (404). Temporarily make `getSamplePosts` return `[]`, see the empty message, then revert.
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11_
 
-- [ ] 5. Fidelity and copy pass against the prototype
+- [x] 5. Fidelity and copy pass against the prototype
   - With Playwright MCP at 1280×800, screenshot `http://localhost:3000/` and `references/templates/feed.dc.html` (file URL), saving both in `.playwright-mcp/`. Fix any differences in spacing, sizes, weights, colors, shadows or radii in the components from tasks 3–4. Scroll the feed and confirm the sidebar stays fixed.
   - Run the copy checks from the design. `grep -rnE "\b(vos|Compartí|Buenas)\b" app components` must find nothing. Accented Spanish in `lib/` must appear only in `sample-data.ts`.
   - Validate: the side-by-side screenshots match, except for the copy and layout adaptations in **UI copy adaptation** (the quick-create card differs by design). The greps pass. `npm run lint`, `npx tsc --noEmit` and `npm run build` still pass.
