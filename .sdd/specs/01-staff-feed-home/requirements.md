@@ -67,15 +67,15 @@ These strings differ from the prototype. Every other UI string is used verbatim.
 
 **Acceptance criteria:**
 
-1.1. WHEN a user opens `/` THE SYSTEM SHALL render the staff Feed screen instead of the starter page.
-1.2. THE SYSTEM SHALL show a 248px-wide left sidebar containing, top to bottom: the sun logo with "OpenDayCare" and "Sala Soles", a "Nueva publicación" button, the nav items "Feed", "Niños", "Avisos" and "Mi cuenta", and a user card with avatar "C", "Caro Giménez", "Maestra · Soles" and a logout button titled "Cerrar sesión".
-1.3. WHILE the current page is `/` THE SYSTEM SHALL show "Feed" as the active nav item (background `#FBE3D8`, text `#D9583C`, weight 800), with the other items inactive.
-1.4. WHILE the user scrolls the feed content THE SYSTEM SHALL keep the sidebar fully visible and unscrolled.
-1.5. WHEN the user clicks a sidebar element THE SYSTEM SHALL navigate as follows: logo → `/`, "Nueva publicación" → `/posts/new`, "Feed" → `/`, "Niños" → `/children`, "Avisos" → `/notifications`, "Mi cuenta" → `/account`, "Cerrar sesión" → `/login`.
-1.6. IF a link's destination screen is not implemented yet THEN THE SYSTEM SHALL show the framework's standard 404 page.
-1.7. THE SYSTEM SHALL use Fredoka for headings and names, Nunito for body text, and the prototype palette (background `#F6ECDF`, surface `#FFFDF9`, text `#3F362E`, border `#ECE0D0`).
-1.8. WHEN viewed at 1280×800 THE SYSTEM SHALL match `references/templates/feed.dc.html` in layout, spacing, sizes and colors, and in copy, except for the copy and layout adaptations listed in **UI copy adaptation**.
-1.9. THE SYSTEM SHALL write all UI copy in neutral Latin American Spanish, with no voseo forms.
+- [x] **1.1.** WHEN a user opens `/` THE SYSTEM SHALL render the staff Feed screen instead of the starter page.
+- [x] **1.2.** THE SYSTEM SHALL show a 248px-wide left sidebar containing, top to bottom: the sun logo with "OpenDayCare" and "Sala Soles", a "Nueva publicación" button, the nav items "Feed", "Niños", "Avisos" and "Mi cuenta", and a user card with avatar "C", "Caro Giménez", "Maestra · Soles" and a logout button titled "Cerrar sesión".
+- [x] **1.3.** WHILE the current page is `/` THE SYSTEM SHALL show "Feed" as the active nav item (background `#FBE3D8`, text `#D9583C`, weight 800), with the other items inactive.
+- [x] **1.4.** WHILE the user scrolls the feed content THE SYSTEM SHALL keep the sidebar fully visible and unscrolled.
+- [x] **1.5.** WHEN the user clicks a sidebar element THE SYSTEM SHALL navigate as follows: logo → `/`, "Nueva publicación" → `/posts/new`, "Feed" → `/`, "Niños" → `/children`, "Avisos" → `/notifications`, "Mi cuenta" → `/account`, "Cerrar sesión" → `/login`.
+- [x] **1.6.** IF a link's destination screen is not implemented yet THEN THE SYSTEM SHALL show the framework's standard 404 page.
+- [x] **1.7.** THE SYSTEM SHALL use Fredoka for headings and names, Nunito for body text, and the prototype palette (background `#F6ECDF`, surface `#FFFDF9`, text `#3F362E`, border `#ECE0D0`).
+- [x] **1.8.** WHEN viewed at 1280×800 THE SYSTEM SHALL match `references/templates/feed.dc.html` in layout, spacing, sizes and colors, and in copy, except for the copy and layout adaptations listed in **UI copy adaptation**.
+- [x] **1.9.** THE SYSTEM SHALL write all UI copy in neutral Latin American Spanish, with no voseo forms.
 
 ### Requirement 2 — Feed header and quick post creation
 
@@ -85,14 +85,14 @@ These strings differ from the prototype. Every other UI string is used verbatim.
 
 **Acceptance criteria:**
 
-2.1. THE SYSTEM SHALL show the eyebrow "GUARDERÍA · SALA SOLES", the title "Hola, Caro", and the subtitle "<N> niños · <date>", where N is the classroom's children count (12 in the sample data).
-2.2. THE SYSTEM SHALL format `<date>` as today's date in the app timezone using Latin American Spanish names: lowercase weekday, day number and lowercase 3-letter month, with no commas or periods (e.g. "viernes 3 oct").
-2.3. IF the children count is 1 THEN THE SYSTEM SHALL write "1 niño" instead of "1 niños".
-2.4. THE SYSTEM SHALL show a quick-create card below the header. It contains avatar "C" next to a multi-line text box with the placeholder "Comparte un momento…", and below them an audience selector (accessible name "Para"), a type selector (accessible name "Tipo") and a "Publicar" button. The selectors have no visible labels, since their selected value says what they are.
-2.5. THE SYSTEM SHALL offer the audience options "Toda la sala" followed by one option per child in the classroom, by name (sample data: "Mateo"), with "Toda la sala" selected by default.
-2.6. THE SYSTEM SHALL offer the type options "Logro", "Actividad" and "Anuncio", with "Anuncio" selected by default.
-2.7. WHEN the user types in the text box or changes a selector THE SYSTEM SHALL keep the entered values and SHALL NOT navigate.
-2.8. WHEN the user clicks "Publicar" THE SYSTEM SHALL NOT create a post, navigate, reload or clear the form, and the post list SHALL stay unchanged.
+- [x] **2.1.** THE SYSTEM SHALL show the eyebrow "GUARDERÍA · SALA SOLES", the title "Hola, Caro", and the subtitle "<N> niños · <date>", where N is the classroom's children count (12 in the sample data).
+- [x] **2.2.** THE SYSTEM SHALL format `<date>` as today's date in the app timezone using Latin American Spanish names: lowercase weekday, day number and lowercase 3-letter month, with no commas or periods (e.g. "viernes 3 oct").
+- [x] **2.3.** IF the children count is 1 THEN THE SYSTEM SHALL write "1 niño" instead of "1 niños".
+- [x] **2.4.** THE SYSTEM SHALL show a quick-create card below the header. It contains avatar "C" next to a multi-line text box with the placeholder "Comparte un momento…", and below them an audience selector (accessible name "Para"), a type selector (accessible name "Tipo") and a "Publicar" button. The selectors have no visible labels, since their selected value says what they are.
+- [x] **2.5.** THE SYSTEM SHALL offer the audience options "Toda la sala" followed by one option per child in the classroom, by name (sample data: "Mateo"), with "Toda la sala" selected by default.
+- [x] **2.6.** THE SYSTEM SHALL offer the type options "Logro", "Actividad" and "Anuncio", with "Anuncio" selected by default.
+- [x] **2.7.** WHEN the user types in the text box or changes a selector THE SYSTEM SHALL keep the entered values and SHALL NOT navigate.
+- [x] **2.8.** WHEN the user clicks "Publicar" THE SYSTEM SHALL NOT create a post, navigate, reload or clear the form, and the post list SHALL stay unchanged.
 
 ### Requirement 3 — Today's posts
 
@@ -102,10 +102,10 @@ These strings differ from the prototype. Every other UI string is used verbatim.
 
 **Acceptance criteria:**
 
-3.1. THE SYSTEM SHALL show a "PUBLICADO HOY" divider below the quick-create card.
-3.2. THE SYSTEM SHALL list only the posts published today in the app timezone, newest first.
-3.3. IF a post was published on a previous day THEN THE SYSTEM SHALL NOT show it in the list. The sample yesterday post must not appear.
-3.4. IF there are no posts published today THEN THE SYSTEM SHALL show the "PUBLICADO HOY" divider followed by the muted text "Todavía no hay publicaciones hoy." and no post cards.
+- [x] **3.1.** THE SYSTEM SHALL show a "PUBLICADO HOY" divider below the quick-create card.
+- [x] **3.2.** THE SYSTEM SHALL list only the posts published today in the app timezone, newest first.
+- [x] **3.3.** IF a post was published on a previous day THEN THE SYSTEM SHALL NOT show it in the list. The sample yesterday post must not appear.
+- [x] **3.4.** IF there are no posts published today THEN THE SYSTEM SHALL show the "PUBLICADO HOY" divider followed by the muted text "Todavía no hay publicaciones hoy." and no post cards.
 
 ### Requirement 4 — Post card
 
@@ -115,17 +115,17 @@ These strings differ from the prototype. Every other UI string is used verbatim.
 
 **Acceptance criteria:**
 
-4.1. WHEN a post's audience is one child's family THE SYSTEM SHALL show the child's initial in a circle with that child's colors (Mateo: background `#A9D9E8`, text `#1F7A93`), the child's name, and "Para: familia de <child name>".
-4.2. WHEN a post's audience is the whole classroom THE SYSTEM SHALL show a megaphone icon in a circle (background `#CCD8F4`, icon `#4E72C8`), the title "Anuncio general", and "Para: toda la sala".
-4.3. THE SYSTEM SHALL show a type badge with a dot and an uppercase label: achievement → "LOGRO" (`#CFEBD8` / `#3E9B6C`), activity → "ACTIVIDAD" (`#C7E7F1` / `#2E89A6`), announcement → "ANUNCIO" (`#CCD8F4` / `#4E72C8`).
-4.4. THE SYSTEM SHALL show the publication time as "HH:MM" in 24-hour app-timezone time, followed by " · publicado por <author>".
-4.5. WHEN the post's author is the current user THE SYSTEM SHALL write "publicado por ti" and show an "Editar" link to `/posts/<id>/edit`.
-4.6. IF the post's author is another staff member THEN THE SYSTEM SHALL write "publicado por <author first name>" and SHALL NOT show "Editar".
-4.7. THE SYSTEM SHALL show the post's full text body.
-4.8. WHEN a post includes a photo THE SYSTEM SHALL show a 200px dashed placeholder box with an image icon and "Foto · <caption>" between the body and the footer, linking to `/posts/<id>/photo`.
-4.9. IF a post has no photo THEN THE SYSTEM SHALL render no placeholder box.
-4.10. THE SYSTEM SHALL show a footer with a filled heart and the reaction count, and a comment icon with the comment count linking to `/posts/<id>`.
-4.11. WHEN the user clicks the heart THE SYSTEM SHALL NOT change the reaction count or navigate.
+- [x] **4.1.** WHEN a post's audience is one child's family THE SYSTEM SHALL show the child's initial in a circle with that child's colors (Mateo: background `#A9D9E8`, text `#1F7A93`), the child's name, and "Para: familia de <child name>".
+- [x] **4.2.** WHEN a post's audience is the whole classroom THE SYSTEM SHALL show a megaphone icon in a circle (background `#CCD8F4`, icon `#4E72C8`), the title "Anuncio general", and "Para: toda la sala".
+- [x] **4.3.** THE SYSTEM SHALL show a type badge with a dot and an uppercase label: achievement → "LOGRO" (`#CFEBD8` / `#3E9B6C`), activity → "ACTIVIDAD" (`#C7E7F1` / `#2E89A6`), announcement → "ANUNCIO" (`#CCD8F4` / `#4E72C8`).
+- [x] **4.4.** THE SYSTEM SHALL show the publication time as "HH:MM" in 24-hour app-timezone time, followed by " · publicado por <author>".
+- [x] **4.5.** WHEN the post's author is the current user THE SYSTEM SHALL write "publicado por ti" and show an "Editar" link to `/posts/<id>/edit`.
+- [x] **4.6.** IF the post's author is another staff member THEN THE SYSTEM SHALL write "publicado por <author first name>" and SHALL NOT show "Editar".
+- [x] **4.7.** THE SYSTEM SHALL show the post's full text body.
+- [x] **4.8.** WHEN a post includes a photo THE SYSTEM SHALL show a 200px dashed placeholder box with an image icon and "Foto · <caption>" between the body and the footer, linking to `/posts/<id>/photo`.
+- [x] **4.9.** IF a post has no photo THEN THE SYSTEM SHALL render no placeholder box.
+- [x] **4.10.** THE SYSTEM SHALL show a footer with a filled heart and the reaction count, and a comment icon with the comment count linking to `/posts/<id>`.
+- [x] **4.11.** WHEN the user clicks the heart THE SYSTEM SHALL NOT change the reaction count or navigate.
 
 ## What is **not** in this spec
 

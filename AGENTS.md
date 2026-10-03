@@ -39,6 +39,7 @@ Greenfield app on the bare `create-next-app` starter (`app/page.tsx` is still bo
 ## Spec-driven workflow
 
 - Skills `spec` and `spec-impl` (`.agents/skills/`, tracked in `skills-lock.json`) drive large features: `/spec` writes `.sdd/specs/NN-slug/{requirements,design,tasks}.md` and bootstraps `.sdd/steering/`; `/spec-impl` implements an `Approved` spec on a `spec-NN-slug` git branch.
+- Agent `spec-verify` (`.opencode/agent/spec-verify.md`) runs after `/spec-impl` finishes: it converts the EARS acceptance criteria in `.sdd/specs/NN-slug/requirements.md` to checkboxes, drives the running app with the Playwright MCP (artifacts in `.playwright-mcp/`), fixes failing app code, and leaves the spec `Status` change to a human.
 - `.sdd/` does not exist yet — design the first feature with `/spec`, which creates the steering context.
 - `CLAUDE.md` just imports `@AGENTS.md`; this file is the single source of truth.
 
