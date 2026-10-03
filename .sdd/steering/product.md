@@ -1,6 +1,6 @@
 # Product
 
-> **Last updated:** 2026-10-03 · initial generation
+> **Last updated:** 2026-10-03 · by SPEC 01
 
 ## Purpose
 
@@ -13,7 +13,9 @@ OpenDayCare is a daycare app that lets staff share each child's day with their f
 
 ## Main features
 
-None implemented yet. The planned screens are defined by the prototypes in `references/templates/` (see `index.dc.html`):
+- **Staff feed:** the home page at `/`. It shows today's posts for the classroom (in the `Europe/Madrid` timezone), a quick-create form whose "Publicar" button does nothing yet, and the staff sidebar. Data is sample data (SPEC 01).
+
+The remaining planned screens are defined by the prototypes in `references/templates/` (see `index.dc.html`):
 
 - Access: login (staff or family) and account activation with an invitation code.
 - Staff: daycare feed, create post, children list, child profile, add/edit child, link parent, notifications, account.
