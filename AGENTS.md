@@ -22,11 +22,11 @@ Greenfield app on the bare `create-next-app` starter (`app/page.tsx` is still bo
 
 ## Design references (source of truth)
 
-- `references/screens/*.dc.html` — 16 self-contained HTML prototypes of every screen (login, feed, niños, avisos, mi-cuenta, familia-feed, detalle-publicacion, resumen-dia, …). Port these faithfully.
+- `references/templates/*.dc.html` — 16 self-contained HTML prototypes of every screen (login, feed, niños, avisos, mi-cuenta, familia-feed, detalle-publicacion, resumen-dia, …). Port these faithfully.
 - `references/screenshots/*.png` — rendered screenshots of some screens.
-- Prototypes load `references/screens/support.js`, a generated `dc-runtime` renderer. **Never edit `support.js`** and don't wire prototypes into the app; treat them as visual/layout specs.
+- Prototypes load `references/templates/support.js`, a generated `dc-runtime` renderer. **Never edit `support.js`** and don't wire prototypes into the app; treat them as visual/layout specs.
 - Design tokens to replicate in Tailwind: Fredoka (display/headings) + Nunito (body); warm palette — bg `#F6ECDF`, surface `#FFFDF9`, text `#3F362E`, muted `#94887B`/`#A89A8B`, border `#ECE0D0`, accent `#F2937A`/`#E0654A` (strong text `#D9583C`). Layout: 248px desktop sidebar + centered content column (~760px max).
-- UI copy is Spanish (Argentina).
+- UI copy is Spanish (Neutral).
 
 ## Stack quirks
 
