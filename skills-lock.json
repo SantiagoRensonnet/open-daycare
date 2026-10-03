@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "spec": {
+      "source": "SantiagoRensonnet/spec-driven-development-skill",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/spec/SKILL.md",
+      "computedHash": "20a9e34ad4ff13d2765ca39f9f51ed49c44d5175f4dd133a58360c8145a61d95"
+    },
+    "spec-impl": {
+      "source": "SantiagoRensonnet/spec-driven-development-skill",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/spec-impl/SKILL.md",
+      "computedHash": "6e858ca4fbb15de0db002c41fc2cbdee50e41e69b4874dfa061fd4da5e11a7ef"
+    }
+  }
+}
