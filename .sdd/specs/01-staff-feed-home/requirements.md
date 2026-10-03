@@ -1,6 +1,6 @@
 # SPEC 01 — Staff feed as home page
 
-> **Status:** Draft
+> **Status:** Approved
 > **Depends on:** —
 > **Date:** 2026-10-03
 > **Objective:** Replace the starter page with the staff Feed screen from `references/templates/feed.dc.html`, rendered at `/` from sample data.
