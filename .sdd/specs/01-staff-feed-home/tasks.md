@@ -6,26 +6,26 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
 
 ## Tasks
 
-- [ ] 1. Set up the theme tokens and fonts
+- [x] 1. Set up the theme tokens and fonts
   - In `app/layout.tsx`, replace Geist with `Fredoka` and `Nunito` from `next/font/google` (variables `--font-fredoka`, `--font-nunito`). Set `lang="es-419"` and the `metadata` from the design. Apply the base background and text to `<body>`.
   - In `app/globals.css`, replace the starter tokens and the dark-mode block with the palette and font tokens from the design's table under `@theme inline`. Port the thin scrollbar rule.
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass. `npm run dev` still serves `/` (the starter page) in Nunito on `#F6ECDF`.
   - _Requirements: 1.7_
 
-- [ ] 2. Add the domain types, routes, date helpers and sample data
-  - [ ] 2.1 Create `lib/types.ts` (`StaffRole`, `StaffMember`, `Classroom`, `Child`, `PostType`, `PostAudience`, `Post`) and `lib/routes.ts` (`routes`, English segments, entity-first keys: `postNew`, `postDetail`, `postEdit`, `postPhoto`) exactly as in the design.
-  - [ ] 2.2 Create `lib/dates.ts` with `LOCALE`, `TIME_ZONE = "Europe/Madrid"`, `formatHeaderDate`, `formatTime`, `dayKey`, `zoneOffset` and `atLocalTime`.
-  - [ ] 2.3 Create `lib/feed.ts` with `getTodayPosts`.
-  - [ ] 2.4 Create `lib/sample-data.ts` with `currentUser` (Caro Giménez, `teacher`), `staff` (Caro, Lucía), `classroom` (Soles, 12), `children` (Mateo with its colors) and `getSamplePosts(now)` returning `p0`–`p4` with the bodies from the design.
+- [x] 2. Add the domain types, routes, date helpers and sample data
+  - [x] 2.1 Create `lib/types.ts` (`StaffRole`, `StaffMember`, `Classroom`, `Child`, `PostType`, `PostAudience`, `Post`) and `lib/routes.ts` (`routes`, English segments, entity-first keys: `postNew`, `postDetail`, `postEdit`, `postPhoto`) exactly as in the design.
+  - [x] 2.2 Create `lib/dates.ts` with `LOCALE`, `TIME_ZONE = "Europe/Madrid"`, `formatHeaderDate`, `formatTime`, `dayKey`, `zoneOffset` and `atLocalTime`.
+  - [x] 2.3 Create `lib/feed.ts` with `getTodayPosts`.
+  - [x] 2.4 Create `lib/sample-data.ts` with `currentUser` (Caro Giménez, `teacher`), `staff` (Caro, Lucía), `classroom` (Soles, 12), `children` (Mateo with its colors) and `getSamplePosts(now)` returning `p0`–`p4` with the bodies from the design.
   - Validate: `npx tsc --noEmit` and `npm run lint` pass. Run a one-off `node -e` with the same `Intl` options and `formatToParts` logic: `2026-06-17T12:20:00Z` must yield "miércoles 17 jun" / "14:20" and `2026-01-13T13:20:00Z` must yield "martes 13 ene" / "14:20" (check the ICU output has no stray punctuation). `zoneOffset` must return `+02:00` and `+01:00` for those days.
   - _Requirements: 2.2, 3.2, 3.3, 4.4_
 
-- [ ] 3. Build the staff shell and the feed header at `/`
-  - [ ] 3.1 Create `components/icons.tsx` with the inline SVG icons copied from `references/templates/feed.dc.html`.
-  - [ ] 3.2 Create `components/staff/SidebarNav.tsx` (client, `usePathname`, `NAV_ITEMS`) and `components/staff/Sidebar.tsx` (brand link, "Nueva publicación", nav, user card with `ROLE_LABELS` and "Cerrar sesión" → `routes.login`). Use `routes.*` for every href.
-  - [ ] 3.3 Create `app/(staff)/layout.tsx` (sticky 248px sidebar plus scrolling `main` with the 760px column).
-  - [ ] 3.4 Delete `app/page.tsx`. Create `app/(staff)/page.tsx` (`await connection()`, `now`) rendering `components/feed/FeedHeader.tsx` (with the "niño"/"niños" pluralization).
-  - [ ] 3.5 Create `components/feed/post-type-labels.ts` (`POST_TYPE_LABELS`) and `components/feed/PostQuickCreate.tsx` (textarea "Comparte un momento…", "Para" select with "Toda la sala" + children, "Tipo" select defaulting to "Anuncio", `type="button"` "Publicar"). Render it below the header.
+- [x] 3. Build the staff shell and the feed header at `/`
+  - [x] 3.1 Create `components/icons.tsx` with the inline SVG icons copied from `references/templates/feed.dc.html`.
+  - [x] 3.2 Create `components/staff/SidebarNav.tsx` (client, `usePathname`, `NAV_ITEMS`) and `components/staff/Sidebar.tsx` (brand link, "Nueva publicación", nav, user card with `ROLE_LABELS` and "Cerrar sesión" → `routes.login`). Use `routes.*` for every href.
+  - [x] 3.3 Create `app/(staff)/layout.tsx` (sticky 248px sidebar plus scrolling `main` with the 760px column).
+  - [x] 3.4 Delete `app/page.tsx`. Create `app/(staff)/page.tsx` (`await connection()`, `now`) rendering `components/feed/FeedHeader.tsx` (with the "niño"/"niños" pluralization).
+  - [x] 3.5 Create `components/feed/post-type-labels.ts` (`POST_TYPE_LABELS`) and `components/feed/PostQuickCreate.tsx` (textarea "Comparte un momento…", "Para" select with "Toda la sala" + children, "Tipo" select defaulting to "Anuncio", `type="button"` "Publicar"). Render it below the header.
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass, and the build lists `/` as dynamic. In the browser, `/` shows the sidebar with "Feed" active, "GUARDERÍA · SALA SOLES", "Hola, Caro", "12 niños · <today>" and the quick-create form with defaults "Toda la sala" and "Anuncio" (audience options: "Toda la sala", "Mateo"; type options: "Logro", "Actividad", "Anuncio"). Type some text and click "Publicar": nothing happens, and the text stays. Clicking the logo/Feed stays on `/`. "Nueva publicación", Niños, Avisos, Mi cuenta and "Cerrar sesión" go to `/posts/new`, `/children`, `/notifications`, `/account` and `/login` (404). Temporarily set `childrenCount: 1` and confirm "1 niño", then revert.
   - _Requirements: 1.1, 1.2, 1.3, 1.5, 1.6, 1.9, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8_
 

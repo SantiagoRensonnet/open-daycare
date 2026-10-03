@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // HTML prototypes and their generated runtime are a visual spec, not app code.
+    "references/**",
   ]),
 ]);
 
