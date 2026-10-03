@@ -8,6 +8,41 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+# OpenDayCare
+
+Greenfield app on the bare `create-next-app` starter (`app/page.tsx` is still boilerplate). The product is a Spanish-language daycare/guardería app whose UI is defined by HTML prototypes in `references/` — build to match them, don't invent screens.
+
+## Commands
+
+- `npm run dev` — dev server (port 3000)
+- `npm run build` — production build
+- `npm run lint` — ESLint over the whole repo (no file args)
+- `npx tsc --noEmit` — typecheck (no script exists)
+- No test runner, formatter, or CI is configured. `lint` + `tsc` are the only verification.
+
+## Design references (source of truth)
+
+- `references/screens/*.dc.html` — 16 self-contained HTML prototypes of every screen (login, feed, niños, avisos, mi-cuenta, familia-feed, detalle-publicacion, resumen-dia, …). Port these faithfully.
+- `references/screenshots/*.png` — rendered screenshots of some screens.
+- Prototypes load `references/screens/support.js`, a generated `dc-runtime` renderer. **Never edit `support.js`** and don't wire prototypes into the app; treat them as visual/layout specs.
+- Design tokens to replicate in Tailwind: Fredoka (display/headings) + Nunito (body); warm palette — bg `#F6ECDF`, surface `#FFFDF9`, text `#3F362E`, muted `#94887B`/`#A89A8B`, border `#ECE0D0`, accent `#F2937A`/`#E0654A` (strong text `#D9583C`). Layout: 248px desktop sidebar + centered content column (~760px max).
+- UI copy is Spanish (Argentina).
+
+## Stack quirks
+
+- Next 16.3.8 App Router, React 19.2.8, Tailwind v4 via `@tailwindcss/postcss`.
+- Tailwind v4: no `tailwind.config.js`; theme tokens live in `app/globals.css` under `@theme inline`.
+- ESLint 9 flat config (`eslint.config.mjs`) extending `eslint-config-next` core-web-vitals + typescript.
+- `@/*` alias maps to the repo root (`./*`), not `src/`. App code lives in `app/`.
+- Next 16 generates typed globals such as `LayoutProps<"/">` (already used in `app/layout.tsx`).
+
+## Spec-driven workflow
+
+- Skills `spec` and `spec-impl` (`.agents/skills/`, tracked in `skills-lock.json`) drive large features: `/spec` writes `.sdd/specs/NN-slug/{requirements,design,tasks}.md` and bootstraps `.sdd/steering/`; `/spec-impl` implements an `Approved` spec on a `spec-NN-slug` git branch.
+- `.sdd/` does not exist yet — design the first feature with `/spec`, which creates the steering context.
+- `CLAUDE.md` just imports `@AGENTS.md`; this file is the single source of truth.
+
 ## MCPs
 
 - Everything related to Playwright (e.g., screenshots, snapshots, traces) must be saved in the `.playwright-mcp` directory.
+- Playwright MCP is configured in both `opencode.json` and `.mcp.json`.
