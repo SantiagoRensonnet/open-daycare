@@ -1,6 +1,6 @@
 # Product
 
-> **Last updated:** 2026-10-03 · by SPEC 01
+> **Last updated:** 2026-10-04 · by SPEC 02
 
 ## Purpose
 
@@ -13,7 +13,8 @@ OpenDayCare is a daycare app that lets staff share each child's day with their f
 
 ## Main features
 
-- **Staff feed:** the home page at `/`. It shows today's posts for the classroom (in the `Europe/Madrid` timezone), a quick-create form whose "Publicar" button does nothing yet, and the staff sidebar. Data is sample data (SPEC 01).
+- **Staff feed:** the home page at `/`. It shows today's posts for the classroom (in the `Europe/Madrid` timezone), a quick-create form whose "Publicar" button does nothing yet, and the staff sidebar. The header's children count is derived from the classroom's children (8 in the sample data). Data is sample data (SPEC 01).
+- **Children list and child profile:** `/kids` lists the classroom's children with live search by name, and `/kids/<id>` shows a child's age, allergies and notes, dates and linked parents (SPEC 02).
 
 The remaining planned screens are defined by the prototypes in `references/templates/` (see `index.dc.html`):
 
@@ -39,9 +40,12 @@ Code, docs and identifiers use the English term. The Spanish label is used only 
 | Notifications | Recent activity feed for staff. | Avisos |
 | Account | User settings screen. | Mi cuenta |
 | Day summary | End-of-day recap for a child. | Resumen del día |
+| Parent relationship | `mother` / `father` / `guardian` (SPEC 02). | Mamá / Papá / Tutor/a |
+| Parent status | `active` / `pending` (SPEC 02). | cuenta activa / invitación enviada |
 
 ## Product constraints
 
 - UI copy is **neutral Latin American Spanish**: `tú` forms, no voseo ("Comparte", "publicado por ti"). The prototypes use Argentine voseo, so their copy is adapted when ported.
 - Code, identifiers, URLs and the domain glossary are in English. Translation to Spanish happens only in the rendered templates (pages and components).
 - Screens must match the HTML prototypes in `references/templates/*.dc.html`. Do not invent screens.
+- Allergy information takes priority over other badges in the children list (SPEC 02).

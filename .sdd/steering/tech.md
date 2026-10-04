@@ -1,6 +1,6 @@
 # Tech stack
 
-> **Last updated:** 2026-10-03 · by SPEC 01
+> **Last updated:** 2026-10-04 · by SPEC 02
 
 ## Stack
 
@@ -32,6 +32,7 @@
 - Theme: light only. Tokens live in `app/globals.css` under `@theme inline`, and there is no dark mode (SPEC 01).
 - Rendering: pages that depend on the current time call `await connection()` (`next/server`) so they render per request. The build must list them as dynamic (`ƒ`) (SPEC 01).
 - `.next/dev/types` can go stale after a route file is deleted (`tsc` reports a missing `app/page.js`). Delete `.next/dev` and rebuild.
+- After adding a route, run `npx next typegen` (or `npm run build`) before `npx tsc --noEmit`, so `PageProps<…>` knows the new route. Otherwise `tsc` reports that the route "does not satisfy the constraint 'AppRoutes'" (SPEC 02).
 
 ## Testing conventions
 
