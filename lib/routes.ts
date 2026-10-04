@@ -1,11 +1,16 @@
 export const routes = {
   home: "/",
   postNew: "/posts/new",
-  children: "/children",
+  kids: "/kids",
+  kidNew: "/kids/new",
   notifications: "/notifications",
   account: "/account",
   login: "/login",
   postDetail: (id: string) => `/posts/${id}`,
   postEdit: (id: string) => `/posts/${id}/edit`,
   postPhoto: (id: string) => `/posts/${id}/photo`,
+  kidDetail: (id: string) => `/kids/${id}`,
+  kidEdit: (id: string) => `/kids/${id}/edit`,
+  kidSummary: (id: string) => `/kids/${id}/summary`,
+  kidLinkParent: (id: string) => `/kids/${id}/link-parent`,
 } as const;

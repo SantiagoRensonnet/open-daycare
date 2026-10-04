@@ -6,28 +6,28 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
 
 ## Tasks
 
-- [ ] 1. Extend the domain model, date helpers and sample data
-  - [ ] 1.1 In `lib/types.ts`, remove `Classroom.childrenCount`, replace `Child.name` with `firstName` / `lastName`, add `classroomId`, `birthDate`, `enrolledOn`, `allergy` and `notes` to `Child`, and add `ParentRelationship`, `ParentStatus`, `Parent` and `Age`, as in the design.
-  - [ ] 1.2 In `lib/dates.ts`, add `formatCalendarDate`, `formatCalendarMonth` and `ageAt`.
-  - [ ] 1.3 Create `lib/children.ts` with `getClassroomChildren`, `getChild`, `getChildParents`, `fullName`, `normalizeSearch` and `childMatchesQuery`. It must not import `sample-data.ts`.
-  - [ ] 1.4 In `lib/sample-data.ts`, replace `children` with the 8 children from the design's table (in that order) and add `parents` (9 parents).
-  - [ ] 1.5 Keep the feed compiling: `PostCard` and `PostQuickCreate` use `child.firstName`. `FeedHeader` takes a `childCount` prop. `app/(staff)/page.tsx` passes `getClassroomChildren(children, classroom.id)` (its length to `FeedHeader`, the list to `PostQuickCreate`).
+- [x] 1. Extend the domain model, date helpers and sample data
+  - [x] 1.1 In `lib/types.ts`, remove `Classroom.childrenCount`, replace `Child.name` with `firstName` / `lastName`, add `classroomId`, `birthDate`, `enrolledOn`, `allergy` and `notes` to `Child`, and add `ParentRelationship`, `ParentStatus`, `Parent` and `Age`, as in the design.
+  - [x] 1.2 In `lib/dates.ts`, add `formatCalendarDate`, `formatCalendarMonth` and `ageAt`.
+  - [x] 1.3 Create `lib/children.ts` with `getClassroomChildren`, `getChild`, `getChildParents`, `fullName`, `normalizeSearch` and `childMatchesQuery`. It must not import `sample-data.ts`.
+  - [x] 1.4 In `lib/sample-data.ts`, replace `children` with the 8 children from the design's table (in that order) and add `parents` (9 parents).
+  - [x] 1.5 Keep the feed compiling: `PostCard` and `PostQuickCreate` use `child.firstName`. `FeedHeader` takes a `childCount` prop. `app/(staff)/page.tsx` passes `getClassroomChildren(children, classroom.id)` (its length to `FeedHeader`, the list to `PostQuickCreate`).
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass. Run the `node -e` logic check from the design's **Testing strategy** (`ageAt` birthday, under-1-year, Feb 29 cases; `normalizeSearch`; calendar formats including "sept 2025"). In the browser, `/` shows "8 niños · <today>", the "Para" selector lists "Toda la sala" + the 8 first names, and the post cards still say "Mateo".
   - _Requirements: 5.1, 5.3, 5.4, 6.3, 6.4_
 
-- [ ] 2. Move the content column into pages and point "Niños" at `/kids`
-  - [ ] 2.1 Create `components/staff/PageColumn.tsx` (`maxWidth: 760 | 820 | 880`, static class map). Remove the fixed column from `app/(staff)/layout.tsx`, and wrap the feed page in `<PageColumn maxWidth={760}>`.
-  - [ ] 2.2 In `lib/routes.ts`, replace `children` with `kids` and add `kidNew`, `kidDetail`, `kidEdit`, `kidSummary` and `kidLinkParent`.
-  - [ ] 2.3 In `components/staff/SidebarNav.tsx`, point "Niños" to `routes.kids` and switch to the prefix-match `isActive` rule (Feed stays exact-match).
+- [x] 2. Move the content column into pages and point "Niños" at `/kids`
+  - [x] 2.1 Create `components/staff/PageColumn.tsx` (`maxWidth: 760 | 820 | 880`, static class map). Remove the fixed column from `app/(staff)/layout.tsx`, and wrap the feed page in `<PageColumn maxWidth={760}>`.
+  - [x] 2.2 In `lib/routes.ts`, replace `children` with `kids` and add `kidNew`, `kidDetail`, `kidEdit`, `kidSummary` and `kidLinkParent`.
+  - [x] 2.3 In `components/staff/SidebarNav.tsx`, point "Niños" to `routes.kids` and switch to the prefix-match `isActive` rule (Feed stays exact-match).
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass. With Playwright MCP at 1280×800, `/` looks the same as before this task (same column width and padding), with "Feed" active. Clicking "Niños" goes to `/kids` (404 for now).
   - _Requirements: 1.1, 1.3, 6.6_
 
-- [ ] 3. Build the children list at `/kids`
-  - [ ] 3.1 Add `SearchIcon` and `ChevronRightIcon` to `components/icons.tsx`, copied from `ninos.dc.html`.
-  - [ ] 3.2 Create `components/kids/age-label.ts` (`formatAgeLabel`) and `components/kids/KidAvatar.tsx` (sizes 48 and 84).
-  - [ ] 3.3 Create `components/kids/KidCard.tsx`: a link to `routes.kidDetail`, the avatar, full name, "<age> · <parents label>", the right slot (allergy chip > "VINCULAR" > chevron) and the hover lift.
-  - [ ] 3.4 Create `components/kids/KidList.tsx` (`"use client"`, `KidListItem` type) with the search box (no filtering yet), the "SALA SOLES · N niños" section header, the 2-column grid, and the "Todavía no hay niños en esta sala." empty state.
-  - [ ] 3.5 Create `app/(staff)/kids/page.tsx`: `connection()`, build `KidListItem`s with `ageAt` and `getChildParents`, and render `<PageColumn maxWidth={880}>` with "GESTIÓN", "Niños", the "Agregar niño" link (`routes.kidNew`) and `KidList`.
+- [x] 3. Build the children list at `/kids`
+  - [x] 3.1 Add `SearchIcon` and `ChevronRightIcon` to `components/icons.tsx`, copied from `ninos.dc.html`.
+  - [x] 3.2 Create `components/kids/age-label.ts` (`formatAgeLabel`) and `components/kids/KidAvatar.tsx` (sizes 48 and 84).
+  - [x] 3.3 Create `components/kids/KidCard.tsx`: a link to `routes.kidDetail`, the avatar, full name, "<age> · <parents label>", the right slot (allergy chip > "VINCULAR" > chevron) and the hover lift.
+  - [x] 3.4 Create `components/kids/KidList.tsx` (`"use client"`, `KidListItem` type) with the search box (no filtering yet), the "SALA SOLES · N niños" section header, the 2-column grid, and the "Todavía no hay niños en esta sala." empty state.
+  - [x] 3.5 Create `app/(staff)/kids/page.tsx`: `connection()`, build `KidListItem`s with `ageAt` and `getChildParents`, and render `<PageColumn maxWidth={880}>` with "GESTIÓN", "Niños", the "Agregar niño" link (`routes.kidNew`) and `KidList`.
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass, and `/kids` is listed as dynamic. In the browser, `/kids` shows the 8 cards in prototype order with "3 años · 2 padres vinculados" (Mateo), "2 años · sin padres vinculados" + "VINCULAR" (Valentina), "MANÍ" (Mateo), "LACTOSA" (Tomás) and chevrons elsewhere. "Niños" is active. Hovering a card lifts it. A card click goes to `/kids/<id>` (404 for now), and "Agregar niño" goes to `/kids/new` (404). Temporarily give Valentina an allergy and confirm that only the allergy chip shows. Temporarily empty the classroom and confirm "0 niños" + "Todavía no hay niños en esta sala.". Revert both.
   - _Requirements: 1.2, 1.4, 1.6, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12, 5.2, 6.1_
 

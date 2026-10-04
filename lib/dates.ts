@@ -1,3 +1,5 @@
+import type { Age } from "@/lib/types";
+
 export const LOCALE = "es-419";
 
 /** App timezone (Barcelona), chosen for testing. Every displayed date and "today" uses it. */
@@ -61,4 +63,38 @@ export function atLocalTime(now: Date, hhmm: string, dayOffset = 0): Date {
   const [year, month, day] = dayKey(now).split("-").map(Number);
   const ymd = new Date(Date.UTC(year, month - 1, day - dayOffset)).toISOString().slice(0, 10);
   return new Date(`${ymd}T${hhmm}:00${zoneOffset(ymd)}`);
+}
+
+// Calendar dates ("YYYY-MM-DD") have no zone: format them at noon UTC so the day never shifts.
+const calendarDateFormat = new Intl.DateTimeFormat(LOCALE, {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+function formatCalendar(ymd: string, types: Intl.DateTimeFormatPartTypes[]): string {
+  return calendarDateFormat
+    .formatToParts(new Date(`${ymd}T12:00:00Z`))
+    .filter((part) => types.includes(part.type))
+    .map((part) => part.value.toLowerCase().replace(/\.$/, ""))
+    .join(" ");
+}
+
+/** "12 mar 2023": lowercase, no periods. */
+export function formatCalendarDate(ymd: string): string {
+  return formatCalendar(ymd, ["day", "month", "year"]);
+}
+
+/** "feb 2026": lowercase, no periods. */
+export function formatCalendarMonth(ymd: string): string {
+  return formatCalendar(ymd, ["month", "year"]);
+}
+
+/** Completed years and months from `birthDate` to `now`'s day in the app timezone. A birthday today counts. */
+export function ageAt(birthDate: string, now: Date): Age {
+  const [y1, m1, d1] = birthDate.split("-").map(Number);
+  const [y2, m2, d2] = dayKey(now).split("-").map(Number);
+  const months = (y2 - y1) * 12 + (m2 - m1) - (d2 < d1 ? 1 : 0);
+  return { years: Math.floor(months / 12), months };
 }

@@ -23,7 +23,7 @@ export function PostCard({ post, author, child, isOwn }: PostCardProps) {
             className="flex size-11 flex-none items-center justify-center rounded-full font-display text-[17px] font-semibold"
             style={{ backgroundColor: child.avatarBg, color: child.avatarFg }}
           >
-            {child.name.charAt(0)}
+            {child.firstName.charAt(0)}
           </div>
         ) : (
           <div className="flex size-11 flex-none items-center justify-center rounded-full bg-[#CCD8F4] text-[#4E72C8]">
@@ -32,7 +32,7 @@ export function PostCard({ post, author, child, isOwn }: PostCardProps) {
         )}
         <div className="flex-1">
           <div className="font-display text-[16.5px] font-semibold text-ink">
-            {isFamily ? child.name : "Anuncio general"}
+            {isFamily ? child.firstName : "Anuncio general"}
           </div>
           <div className="text-[12.5px] text-subtle">
             {formatTime(post.publishedAt)} · publicado por {isOwn ? "ti" : author.firstName}
@@ -42,7 +42,7 @@ export function PostCard({ post, author, child, isOwn }: PostCardProps) {
       </div>
 
       <div className="mb-2.5 text-[12.5px] text-subtle">
-        {isFamily ? `Para: familia de ${child.name}` : "Para: toda la sala"}
+        {isFamily ? `Para: familia de ${child.firstName}` : "Para: toda la sala"}
       </div>
       <p className="m-0 text-[15.5px] leading-[1.55] text-body">{post.body}</p>
 

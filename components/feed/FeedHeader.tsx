@@ -1,8 +1,9 @@
 import { formatHeaderDate } from "@/lib/dates";
 import type { Classroom, StaffMember } from "@/lib/types";
 
-export function FeedHeader({ classroom, user, now }: { classroom: Classroom; user: StaffMember; now: Date }) {
-  const count = classroom.childrenCount;
+type FeedHeaderProps = { classroom: Classroom; user: StaffMember; now: Date; childCount: number };
+
+export function FeedHeader({ classroom, user, now, childCount: count }: FeedHeaderProps) {
 
   return (
     <div className="mb-6">

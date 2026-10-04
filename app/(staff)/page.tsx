@@ -2,6 +2,8 @@ import { connection } from "next/server";
 import { FeedHeader } from "@/components/feed/FeedHeader";
 import { PostCard } from "@/components/feed/PostCard";
 import { PostQuickCreate } from "@/components/feed/PostQuickCreate";
+import { PageColumn } from "@/components/staff/PageColumn";
+import { getClassroomChildren } from "@/lib/children";
 import { getTodayPosts } from "@/lib/feed";
 import { children, classroom, currentUser, getSamplePosts, staff } from "@/lib/sample-data";
 
@@ -9,11 +11,12 @@ export default async function FeedPage() {
   await connection();
   const now = new Date();
   const posts = getTodayPosts(getSamplePosts(now), now);
+  const kids = getClassroomChildren(children, classroom.id);
 
   return (
-    <>
-      <FeedHeader classroom={classroom} user={currentUser} now={now} />
-      <PostQuickCreate user={currentUser} kids={children} />
+    <PageColumn maxWidth={760}>
+      <FeedHeader classroom={classroom} user={currentUser} now={now} childCount={kids.length} />
+      <PostQuickCreate user={currentUser} kids={kids} />
 
       <div className="mb-3.5 flex items-center gap-3.5">
         <span className="text-[12.5px] font-extrabold tracking-[.8px] text-divider-label">PUBLICADO HOY</span>
@@ -41,6 +44,6 @@ export default async function FeedPage() {
           })}
         </div>
       )}
-    </>
+    </PageColumn>
   );
 }

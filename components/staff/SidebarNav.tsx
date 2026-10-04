@@ -8,7 +8,7 @@ import { routes } from "@/lib/routes";
 
 const NAV_ITEMS: { label: string; href: string; icon: ComponentType<{ size?: number }> }[] = [
   { label: "Feed", href: routes.home, icon: HomeIcon },
-  { label: "Niños", href: routes.children, icon: UsersIcon },
+  { label: "Niños", href: routes.kids, icon: UsersIcon },
   { label: "Avisos", href: routes.notifications, icon: BellIcon },
   { label: "Mi cuenta", href: routes.account, icon: UserIcon },
 ];
@@ -19,7 +19,9 @@ export function SidebarNav() {
   return (
     <nav className="flex flex-1 flex-col gap-1">
       {NAV_ITEMS.map(({ label, href, icon: NavIcon }) => {
-        const isActive = pathname === href;
+        // Feed is exact-match, or it would be active everywhere. Other items cover their sub-pages.
+        const isActive =
+          href === routes.home ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
         return (
           <Link
             key={href}

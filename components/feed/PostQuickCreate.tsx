@@ -25,7 +25,7 @@ export function PostQuickCreate({ user, kids }: { user: StaffMember; kids: Child
           <option value="classroom">Toda la sala</option>
           {kids.map((child) => (
             <option key={child.id} value={child.id}>
-              {child.name}
+              {child.firstName}
             </option>
           ))}
         </select>

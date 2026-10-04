@@ -121,3 +121,20 @@ export function ImageIcon({ size = 30, className }: IconProps) {
     </Icon>
   );
 }
+
+export function SearchIcon({ size = 18, className }: IconProps) {
+  return (
+    <Icon size={size} className={className}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m21 21-4.3-4.3" />
+    </Icon>
+  );
+}
+
+export function ChevronRightIcon({ size = 18, className }: IconProps) {
+  return (
+    <Icon size={size} className={className} strokeWidth={2.2}>
+      <path d="m9 18 6-6-6-6" />
+    </Icon>
+  );
+}
