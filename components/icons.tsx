@@ -3,6 +3,9 @@ import type { ReactNode } from "react";
 
 type IconProps = { size?: number; className?: string };
 
+/** For icons whose stroke weight varies between prototypes. */
+type StrokeIconProps = IconProps & { strokeWidth?: number };
+
 function Icon({
   size,
   className,
@@ -28,18 +31,18 @@ function Icon({
   );
 }
 
-export function SunIcon({ size = 21, className }: IconProps) {
+export function SunIcon({ size = 21, className, strokeWidth = 2.2 }: StrokeIconProps) {
   return (
-    <Icon size={size} className={className} strokeWidth={2.2}>
+    <Icon size={size} className={className} strokeWidth={strokeWidth}>
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
     </Icon>
   );
 }
 
-export function PlusIcon({ size = 17, className }: IconProps) {
+export function PlusIcon({ size = 17, className, strokeWidth = 2.4 }: StrokeIconProps) {
   return (
-    <Icon size={size} className={className} strokeWidth={2.4}>
+    <Icon size={size} className={className} strokeWidth={strokeWidth}>
       <path d="M12 5v14M5 12h14" />
     </Icon>
   );
@@ -135,6 +138,23 @@ export function ChevronRightIcon({ size = 18, className }: IconProps) {
   return (
     <Icon size={size} className={className} strokeWidth={2.2}>
       <path d="m9 18 6-6-6-6" />
+    </Icon>
+  );
+}
+
+export function ChevronLeftIcon({ size = 18, className }: IconProps) {
+  return (
+    <Icon size={size} className={className} strokeWidth={2.2}>
+      <path d="m15 18-6-6 6-6" />
+    </Icon>
+  );
+}
+
+export function AlertTriangleIcon({ size = 22, className }: IconProps) {
+  return (
+    <Icon size={size} className={className} strokeWidth={2.2}>
+      <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+      <path d="M12 9v4M12 17h.01" />
     </Icon>
   );
 }

@@ -1,14 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { SearchIcon } from "@/components/icons";
 import { KidCard } from "@/components/kids/KidCard";
+import { childMatchesQuery } from "@/lib/children";
 import type { Age, Child } from "@/lib/types";
 
 /** Computed on the server (ages depend on today) and passed as plain JSON. */
 export type KidListItem = { child: Child; age: Age; parentCount: number };
 
 export function KidList({ classroomName, items }: { classroomName: string; items: KidListItem[] }) {
-  const visible = items;
+  const [query, setQuery] = useState("");
+  const visible = items.filter(({ child }) => childMatchesQuery(child, query));
   const count = visible.length;
 
   return (
@@ -19,7 +22,9 @@ export function KidList({ classroomName, items }: { classroomName: string; items
           type="search"
           placeholder="Buscar niño…"
           aria-label="Buscar niño"
-          className="min-w-0 flex-1 border-none bg-transparent text-[15px] text-ink outline-none placeholder:text-[#B6A99B]"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          className="min-w-0 flex-1 border-none bg-transparent px-0.5 py-px text-[15px] text-ink outline-none placeholder:text-[#B6A99B]"
         />
       </div>
 
@@ -33,6 +38,8 @@ export function KidList({ classroomName, items }: { classroomName: string; items
 
       {items.length === 0 ? (
         <p className="text-[14.5px] text-muted">Todavía no hay niños en esta sala.</p>
+      ) : visible.length === 0 ? (
+        <p className="text-[14.5px] text-muted">Ningún niño coincide con «{query.trim()}».</p>
       ) : (
         <div className="grid grid-cols-2 gap-3.5">
           {visible.map((item) => (

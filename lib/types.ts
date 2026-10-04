@@ -23,7 +23,7 @@ export type Child = {
   birthDate: string;
   /** Calendar date "YYYY-MM-DD", no time or zone. */
   enrolledOn: string;
-  /** Short allergy name for the list chip, e.g. "Maní". `null` → no allergy. */
+  /** Short allergy name for the list chip, e.g. "Lactosa". `null` → no allergy. */
   allergy: string | null;
   /** Free text for "Alergias y notas". `null` → the box is hidden. */
   notes: string | null;

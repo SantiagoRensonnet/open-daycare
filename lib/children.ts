@@ -19,7 +19,7 @@ export function fullName(person: { firstName: string; lastName: string }): strin
   return `${person.firstName} ${person.lastName}`;
 }
 
-/** Trimmed, lowercased, without diacritics: "  SOFÍA " → "sofia". */
+/** Trimmed, lowercased and without diacritics, so accented and plain letters match. */
 export function normalizeSearch(text: string): string {
   return text.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
 }
