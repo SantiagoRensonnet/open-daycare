@@ -6,14 +6,14 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
 
 ## Tasks
 
-- [ ] 1. Add the `activate` route, the check icon and the shared auth components
+- [x] 1. Add the `activate` route, the check icon and the shared auth components
   - Add `activate: "/activate"` to `lib/routes.ts`.
   - Add `CheckIcon` to `components/icons.tsx`, copied from the consent checkbox in `activar-cuenta.dc.html`.
   - Create `components/auth/AuthField.tsx` (`variant: "default" | "code"`) and `components/auth/AuthSubmitButton.tsx` (`type="button"`, no handler), as in the design.
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass.
   - _Requirements: 1.3, 1.4, 2.2, 2.4_
 
-- [ ] 2. Build the login screen at `/login`
+- [x] 2. Build the login screen at `/login`
   - Create `app/(auth)/login/page.tsx` (static Server Component) with the brand panel and the form column, using `AuthField` and `AuthSubmitButton`.
   - Pre-fill the e-mail (`caro@opendaycare.com`), add the inert "¿Olvidaste tu contraseña?" span, and link "Activa tu cuenta" to `routes.activate`.
   - Do not render the "INGRESO COMO" block or its role buttons.
