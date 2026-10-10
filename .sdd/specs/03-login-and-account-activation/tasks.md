@@ -26,7 +26,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass, and `/activate` is listed as static (`○`). In the browser, `/activate` shows the centered column with no staff sidebar: the card reads "Mateo · Sala Soles", the code/e-mail/password are prefilled, the consent checkbox starts checked and toggles on click without navigating, "Activar mi cuenta" does nothing (no navigation, reload or field reset), Enter in a field does nothing, and "Iniciar sesión" goes to `/login`.
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.1_
 
-- [ ] 4. Fidelity and copy pass against the prototypes
+- [x] 4. Fidelity and copy pass against the prototypes
   - Serve the prototypes with `python3 -m http.server 4173` from `references/templates/`. With Playwright MCP at 1280×800 (resize after navigating), screenshot `/login` vs `login.dc.html` and `/activate` vs `activar-cuenta.dc.html`, saving everything in `.playwright-mcp/`. Fix differences in panel widths, spacing, sizes, weights, colors, radii or shadows in the pages and components from tasks 2–3.
   - Run the copy check from the design: `grep -rnE "\b(vos|Ingresá|Activá|Creá|tenés|Publicá|gestioná|mantené|invitó)\b" app components` must find nothing.
   - Validate: the screenshots match, except for the adaptations in **UI copy adaptation** and the omitted role picker. The grep passes. `npm run lint`, `npx tsc --noEmit` and `npm run build` still pass.
