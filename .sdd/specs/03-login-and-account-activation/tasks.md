@@ -20,7 +20,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass, and `/login` is listed as static (`○`). In the browser, `http://localhost:3000/login` shows the two panels with no staff sidebar; the e-mail is prefilled; typing and pressing Enter do nothing; "Iniciar sesión" does nothing (no navigation, reload or field reset); "¿Olvidaste tu contraseña?" does nothing; "Activa tu cuenta" goes to `/activate`; the staff sidebar's "Cerrar sesión" (from `/`) lands here instead of a 404.
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 3.1_
 
-- [ ] 3. Build the account activation screen at `/activate`
+- [x] 3. Build the account activation screen at `/activate`
   - Create `app/(auth)/activate/page.tsx` (static Server Component) with the sun tile, the heading, the invitation card, the three `AuthField`s and the consent checkbox.
   - Pre-fill the code (`7K4P9`), the e-mail (`lucia.fernandez@gmail.com`) and the password (`contraseña`), and link "Iniciar sesión" to `routes.login`.
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass, and `/activate` is listed as static (`○`). In the browser, `/activate` shows the centered column with no staff sidebar: the card reads "Mateo · Sala Soles", the code/e-mail/password are prefilled, the consent checkbox starts checked and toggles on click without navigating, "Activar mi cuenta" does nothing (no navigation, reload or field reset), Enter in a field does nothing, and "Iniciar sesión" goes to `/login`.
