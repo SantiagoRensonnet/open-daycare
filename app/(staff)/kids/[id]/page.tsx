@@ -10,7 +10,7 @@ import { PageColumn } from "@/components/staff/PageColumn";
 import { getChild, getChildParents } from "@/lib/children";
 import { ageAt } from "@/lib/dates";
 import { routes } from "@/lib/routes";
-import { children, classroom, parents } from "@/lib/sample-data";
+import { children, classrooms, parents } from "@/lib/sample-data";
 
 export default async function KidPage({ params }: PageProps<"/kids/[id]">) {
   const { id } = await params;
@@ -20,9 +20,11 @@ export default async function KidPage({ params }: PageProps<"/kids/[id]">) {
   // Unknown ids (including "new", until the add-child spec lands) get the standard 404.
   const child = getChild(children, id);
   if (child === undefined) notFound();
-  // Single classroom for now. A miss is bad sample data, not a user error.
-  const childClassroom = [classroom].find((room) => room.id === child.classroomId)!;
+  // A miss is bad sample data, not a user error.
+  const childClassroom = classrooms.find((room) => room.id === child.classroomId)!;
   const childParents = getChildParents(parents, child.id);
+  // Notes win; with none, the box falls back to the allergy list. No notes and no allergies → no box.
+  const healthText = child.notes ?? (child.allergies.length > 0 ? child.allergies.join(", ") : null);
 
   return (
     <PageColumn maxWidth={820}>
@@ -34,7 +36,7 @@ export default async function KidPage({ params }: PageProps<"/kids/[id]">) {
       <div className="flex flex-wrap items-start gap-[26px]">
         <div className="flex min-w-[300px] flex-1 flex-col gap-[18px]">
           <KidProfileHeader child={child} age={ageAt(child.birthDate, now)} classroomName={childClassroom.name} />
-          {child.notes !== null && <KidHealthNotes notes={child.notes} />}
+          {healthText !== null && <KidHealthNotes text={healthText} />}
           <KidFacts child={child} classroomName={childClassroom.name} />
         </div>
 

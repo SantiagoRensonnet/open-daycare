@@ -6,7 +6,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
 
 ## Tasks
 
-- [ ] 1. Switch `Child` to `fullName` and `allergies`, and add the three classrooms
+- [x] 1. Switch `Child` to `fullName` and `allergies`, and add the three classrooms
   - In `lib/types.ts`, replace `Child.firstName`/`lastName` with `fullName`, and `allergy` with `allergies: string[]`.
   - In `lib/sample-data.ts`, add `classrooms` (Soles, Lunas, Estrellas) with `classroom = classrooms[0]`, and migrate the 8 children (`fullName`, `allergies: ["Maní"]` / `["Lactosa"]` / `[]`).
   - In `lib/children.ts`, add `shortName` and `getChildrenByClassroom`, and make `childMatchesQuery` use `child.fullName`. `fullName()` stays for parents.

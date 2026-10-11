@@ -11,7 +11,7 @@ export function KidAvatar({ child, size }: { child: Child; size: keyof typeof AV
       className={`flex flex-none items-center justify-center rounded-full font-display font-semibold ${AVATAR_SIZES[size]}`}
       style={{ backgroundColor: child.avatarBg, color: child.avatarFg }}
     >
-      {child.firstName.charAt(0)}
+      {child.fullName.charAt(0)}
     </div>
   );
 }

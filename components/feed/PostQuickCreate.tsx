@@ -1,4 +1,5 @@
 import { POST_TYPE_LABELS } from "@/components/feed/post-type-labels";
+import { shortName } from "@/lib/children";
 import type { Child, PostType, StaffMember } from "@/lib/types";
 
 const selectClassName =
@@ -25,7 +26,7 @@ export function PostQuickCreate({ user, kids }: { user: StaffMember; kids: Child
           <option value="classroom">Toda la sala</option>
           {kids.map((child) => (
             <option key={child.id} value={child.id}>
-              {child.firstName}
+              {shortName(child)}
             </option>
           ))}
         </select>
