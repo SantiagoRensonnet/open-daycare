@@ -6,6 +6,12 @@
       "model": "opencode-go/kimi-k3"
     }
   },
+  "permission": {
+    "external_directory": {
+      "/tmp/**": "allow"
+    },
+    "bash": "allow"
+  },
   "mcp": {
     "playwright": {
       "type": "local",
