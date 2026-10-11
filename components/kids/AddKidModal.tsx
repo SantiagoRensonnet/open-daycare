@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { createChild } from "@/app/(staff)/kids/actions";
 import { ChevronDownIcon, PlusIcon } from "@/components/icons";
 import { Modal } from "@/components/ui/Modal";
 import { ModalRow } from "@/components/ui/ModalRow";
@@ -88,8 +89,19 @@ export function AddKidModal({
       setErrors(result.errors);
       return false;
     }
-    // The server call arrives in task 6; a valid form keeps the modal open for now.
-    return false;
+
+    setSaveFailed(false);
+    try {
+      const response = await createChild(input);
+      if (!response.ok) {
+        setErrors(response.errors);
+        return false;
+      }
+      return true;
+    } catch {
+      setSaveFailed(true);
+      return false;
+    }
   }
 
   const fullNameError = errors.fullName !== undefined ? messageFor("fullName", errors.fullName) : undefined;

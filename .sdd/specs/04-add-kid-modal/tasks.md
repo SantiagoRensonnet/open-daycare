@@ -39,7 +39,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: lint, tsc and build pass. In the browser, the button opens the modal with the URL still `/kids`, the page dimmed, the focus in the name field and Soles selected. The select lists Soles, Lunas, Estrellas. Every close path works, with and without changes (confirmation, "Seguir editando" keeps values, Escape on the confirmation, type-then-delete is clean, a drag-select ending outside doesn't close). Reopening shows a clean form. The focus returns to the button. The validation messages appear together, clear on edit, and Enter submits. `/kids/new` is a 404.
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9_
 
-- [ ] 6. Save through the `createChild` Server Action
+- [x] 6. Save through the `createChild` Server Action
   - Add `addChild` to `lib/sample-data.ts`.
   - Create `app/(staff)/kids/actions.ts` with `createChild`: re-validate, `buildChild` with `child-<uuid>`, the position and today, `addChild`, then `refresh()`.
   - In `AddKidModal.save`, call `createChild` after client validation. Map `{ ok: false }` to the errors, a throw to "No se pudo guardar. Intenta de nuevo.", and `{ ok: true }` to `true`.

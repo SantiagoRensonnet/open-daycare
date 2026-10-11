@@ -120,6 +120,11 @@ export const children: Child[] = [
   },
 ];
 
+/** Appends a child to the in-memory list. Survives requests; lost when the server restarts. */
+export function addChild(child: Child): void {
+  children.push(child);
+}
+
 export const parents: Parent[] = [
   {
     id: "parent-lucia-fernandez",
