@@ -26,13 +26,13 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: lint and tsc pass. A one-off `npx tsx -e` script runs every case listed under **Testing strategy → Logic check** in the design with `today = "2026-10-11"`, and all of them match.
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.8, 4.3, 4.4, 4.6, 4.7, 5.4_
 
-- [ ] 4. Build the generic `Modal` and `ModalRow`
-  - [ ] 4.1 Create `components/ui/ModalRow.tsx`.
-  - [ ] 4.2 Create `components/ui/Modal.tsx` (`"use client"`): trigger button, `<dialog>` + `showModal()`, the header (Cancelar, title, Guardar/"Guardando…"), the form body, `requestClose` with `isFormDirty`, the inline discard confirmation ("¿Descartar los cambios?", "Lo que escribiste se perderá.", "Seguir editando", "Descartar"), the `cancel`/`close` listeners, the mouse-down + click outside-click guard, and the `saving` guard on submit and close.
+- [x] 4. Build the generic `Modal` and `ModalRow`
+  - [x] 4.1 Create `components/ui/ModalRow.tsx`.
+  - [x] 4.2 Create `components/ui/Modal.tsx` (`"use client"`): trigger button, `<dialog>` + `showModal()`, the header (Cancelar, title, Guardar/"Guardando…"), the form body, `requestClose` with `isFormDirty`, the inline discard confirmation ("¿Descartar los cambios?", "Lo que escribiste se perderá.", "Seguir editando", "Descartar"), the `cancel`/`close` listeners, the mouse-down + click outside-click guard, and the `saving` guard on submit and close.
   - Validate: lint and tsc pass. Behavior is checked in task 5, its first consumer.
   - _Requirements: 1.2, 1.4, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.9, 4.2_
 
-- [ ] 5. Build `AddKidModal` and wire it into `/kids` (client-side only)
+- [x] 5. Build `AddKidModal` and wire it into `/kids` (client-side only)
   - Add `ChevronDownIcon` to `components/icons.tsx`, copied from `agregar-nino.dc.html`.
   - Create `components/kids/AddKidModal.tsx` with the four `ModalRow`s, the prototype field styles, the classroom `<select>`, `ERROR_MESSAGES`, per-field error clearing, and `save()` running `parseChildForm` on the client. For now, a valid form returns `false` (stays open), until task 6 adds the server call.
   - In `kids/page.tsx`, replace the "Agregar niño" `<Link>` with `<AddKidModal classrooms={classrooms} defaultClassroomId={classroom.id} />`. Remove `kidNew` from `lib/routes.ts`, and update the `new` comment in `kids/[id]/page.tsx`.

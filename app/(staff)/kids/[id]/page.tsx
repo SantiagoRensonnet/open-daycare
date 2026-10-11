@@ -17,7 +17,7 @@ export default async function KidPage({ params }: PageProps<"/kids/[id]">) {
   await connection();
   const now = new Date();
 
-  // Unknown ids (including "new", until the add-child spec lands) get the standard 404.
+  // Unknown ids get the standard 404. There is no add-child route, so "new" 404s too.
   const child = getChild(children, id);
   if (child === undefined) notFound();
   // A miss is bad sample data, not a user error.

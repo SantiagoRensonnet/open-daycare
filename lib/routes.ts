@@ -2,7 +2,6 @@ export const routes = {
   home: "/",
   postNew: "/posts/new",
   kids: "/kids",
-  kidNew: "/kids/new",
   notifications: "/notifications",
   account: "/account",
   login: "/login",
