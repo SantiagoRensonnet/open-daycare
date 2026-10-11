@@ -1,6 +1,6 @@
 # Product
 
-> **Last updated:** 2026-10-04 · by SPEC 02
+> **Last updated:** 2026-10-10 · by SPEC 03
 
 ## Purpose
 
@@ -15,10 +15,10 @@ OpenDayCare is a daycare app that lets staff share each child's day with their f
 
 - **Staff feed:** the home page at `/`. It shows today's posts for the classroom (in the `Europe/Madrid` timezone), a quick-create form whose "Publicar" button does nothing yet, and the staff sidebar. The header's children count is derived from the classroom's children (8 in the sample data). Data is sample data (SPEC 01).
 - **Children list and child profile:** `/kids` lists the classroom's children with live search by name, and `/kids/<id>` shows a child's age, allergies and notes, dates and linked parents (SPEC 02).
+- **Access screens:** login (`/login`) and account activation (`/activate`), faithful to their prototypes and display-only: the fields are editable but nothing is submitted, validated or stored, and there is no authentication. The login role picker ("INGRESO COMO") is intentionally omitted (SPEC 03).
 
 The remaining planned screens are defined by the prototypes in `references/templates/` (see `index.dc.html`):
 
-- Access: login (staff or family) and account activation with an invitation code.
 - Staff: daycare feed, create post, children list, child profile, add/edit child, link parent, notifications, account.
 - Family: parent feed, post detail (reactions and comments), full-screen photo, day summary, account (settings and consent).
 

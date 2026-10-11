@@ -6,6 +6,7 @@ export const routes = {
   notifications: "/notifications",
   account: "/account",
   login: "/login",
+  activate: "/activate",
   postDetail: (id: string) => `/posts/${id}`,
   postEdit: (id: string) => `/posts/${id}/edit`,
   postPhoto: (id: string) => `/posts/${id}/photo`,

@@ -150,6 +150,14 @@ export function ChevronLeftIcon({ size = 18, className }: IconProps) {
   );
 }
 
+export function CheckIcon({ size = 15, className }: IconProps) {
+  return (
+    <Icon size={size} className={className} strokeWidth={3}>
+      <polyline points="20 6 9 17 4 12" />
+    </Icon>
+  );
+}
+
 export function AlertTriangleIcon({ size = 22, className }: IconProps) {
   return (
     <Icon size={size} className={className} strokeWidth={2.2}>
