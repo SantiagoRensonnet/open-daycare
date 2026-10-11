@@ -3,7 +3,6 @@ import { ChevronRightIcon } from "@/components/icons";
 import { formatAgeLabel } from "@/components/kids/age-label";
 import { KidAvatar } from "@/components/kids/KidAvatar";
 import type { KidListItem } from "@/components/kids/KidList";
-import { fullName } from "@/lib/children";
 import { routes } from "@/lib/routes";
 
 const chipClassName = "flex-none rounded-full px-[9px] py-[5px] text-[11px] font-extrabold";
@@ -21,14 +20,14 @@ export function KidCard({ child, age, parentCount }: KidListItem) {
     >
       <KidAvatar child={child} size={48} />
       <div className="min-w-0 flex-1">
-        <div className="font-display text-[16px] font-semibold text-ink">{fullName(child)}</div>
+        <div className="font-display text-[16px] font-semibold text-ink">{child.fullName}</div>
         <div className="text-[13px] text-subtle">
           {formatAgeLabel(age)} · {parentsLabel(parentCount)}
         </div>
       </div>
       {/* Allergy is safety information, so it wins over the "link a parent" hint. */}
-      {child.allergy !== null ? (
-        <span className={`${chipClassName} bg-[#FBD8CC] text-[#D9684A] uppercase`}>{child.allergy}</span>
+      {child.allergies.length > 0 ? (
+        <span className={`${chipClassName} bg-[#FBD8CC] text-[#D9684A] uppercase`}>{child.allergies[0]}</span>
       ) : parentCount === 0 ? (
         <span className={`${chipClassName} bg-[#F9D2DE] text-[#C56486]`}>VINCULAR</span>
       ) : (

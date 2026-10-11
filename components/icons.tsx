@@ -150,6 +150,14 @@ export function ChevronLeftIcon({ size = 18, className }: IconProps) {
   );
 }
 
+export function ChevronDownIcon({ size = 16, className }: IconProps) {
+  return (
+    <Icon size={size} className={className} strokeWidth={2.2}>
+      <path d="m6 9 6 6 6-6" />
+    </Icon>
+  );
+}
+
 export function CheckIcon({ size = 15, className }: IconProps) {
   return (
     <Icon size={size} className={className} strokeWidth={3}>

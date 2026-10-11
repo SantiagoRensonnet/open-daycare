@@ -14,8 +14,8 @@ export type Classroom = {
 
 export type Child = {
   id: string;
-  firstName: string;
-  lastName: string;
+  /** The child's full name, e.g. "Mateo Fernández". The feed derives its first word. */
+  fullName: string;
   classroomId: string;
   avatarBg: string;
   avatarFg: string;
@@ -23,9 +23,9 @@ export type Child = {
   birthDate: string;
   /** Calendar date "YYYY-MM-DD", no time or zone. */
   enrolledOn: string;
-  /** Short allergy name for the list chip, e.g. "Lactosa". `null` → no allergy. */
-  allergy: string | null;
-  /** Free text for "Alergias y notas". `null` → the box is hidden. */
+  /** Allergy names, in the order typed. Empty → no allergy. The list chip shows the first one. */
+  allergies: string[];
+  /** Free text for "Alergias y notas". `null` → the box shows the allergies, or is hidden. */
   notes: string | null;
 };
 
