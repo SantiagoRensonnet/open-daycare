@@ -46,7 +46,7 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: lint, tsc and build pass. In the browser, saving "Martina López", "1/3/2024", Soles, "Maní, lactosa" shows "Guardando…", closes the modal, and appends the card last with "2 años · sin padres vinculados", a "MANÍ" chip and a yellow avatar. "9 niños" appears, the search is cleared, and the change survives a reload. Her profile shows "Sala Soles", "1 mar 2024", "Ingreso oct 2026", "Maní, lactosa" in the box and "Vincular padre". The feed shows "9 niños" and "Martina" in "Para". A child saved to Lunas creates the "SALA LUNAS" section. A temporary throw in `createChild` (reverted) shows the save-failed message with the values kept. A temporary skip of the client check (reverted) with an empty name shows the server's "Ingresa el nombre completo." and stores nothing.
   - _Requirements: 3.10, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12, 6.2_
 
-- [ ] 7. Fidelity and copy pass against the prototype
+- [x] 7. Fidelity and copy pass against the prototype
   - Serve the prototypes with `python3 -m http.server 4173` from `references/templates/`. With Playwright MCP at 1280×800 (resize after navigating), screenshot the open modal vs `agregar-nino.dc.html`, and `/`, `/kids` and `/kids/child-mateo` vs their prototypes, saving everything in `.playwright-mcp/`. Fix differences in the card width, header, label and field styles, spacing, radii, colors and the select's chevron.
   - Run the copy check from the design: `grep -rnE "\b(vos|Ingresá|Usá|Elegí|Intentá|escribís)\b" app components` must find nothing.
   - Validate: the screenshots match, except for the backdrop and the new error/confirmation copy. The grep passes. Lint, tsc and build still pass.
