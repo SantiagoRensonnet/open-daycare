@@ -3,15 +3,16 @@ import { connection } from "next/server";
 import { PlusIcon } from "@/components/icons";
 import { KidList, type KidListItem } from "@/components/kids/KidList";
 import { PageColumn } from "@/components/staff/PageColumn";
-import { getChildParents, getClassroomChildren } from "@/lib/children";
+import { getChildParents } from "@/lib/children";
 import { ageAt } from "@/lib/dates";
 import { routes } from "@/lib/routes";
-import { children, classroom, parents } from "@/lib/sample-data";
+import { children, classrooms, parents } from "@/lib/sample-data";
 
 export default async function KidsPage() {
   await connection();
   const now = new Date();
-  const items: KidListItem[] = getClassroomChildren(children, classroom.id).map((child) => ({
+  // Every child, in sample-data order, so new children come last. `KidList` groups them by classroom.
+  const items: KidListItem[] = children.map((child) => ({
     child,
     age: ageAt(child.birthDate, now),
     parentCount: getChildParents(parents, child.id).length,
@@ -33,7 +34,7 @@ export default async function KidsPage() {
         </Link>
       </div>
 
-      <KidList classroomName={classroom.name} items={items} />
+      <KidList key={children.length} classrooms={classrooms} items={items} />
     </PageColumn>
   );
 }

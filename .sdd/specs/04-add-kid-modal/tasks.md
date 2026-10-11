@@ -15,13 +15,13 @@ All code (identifiers, file and route names, comments) is in English. Spanish (e
   - Validate: `npm run lint`, `npx tsc --noEmit` and `npm run build` pass. In the browser, `/`, `/kids`, `/kids/child-mateo` and `/kids/child-valentina` look exactly as before. A temporary edit (reverted) that gives Valentina `allergies: ["Maní", "Lactosa"]` and no notes shows "Maní, Lactosa" in her profile box and a "MANÍ" chip on her card.
   - _Requirements: 4.12, 5.1, 5.2, 5.3, 6.1, 6.6, 7.2_
 
-- [ ] 2. Group `/kids` by classroom
+- [x] 2. Group `/kids` by classroom
   - `kids/page.tsx` builds `items` from all children and passes `classrooms` to `KidList`, keyed by `children.length`.
   - `KidList` renders one section per classroom with shown children (header, count, rule, grid; `mt-[26px]` between sections), and the single `classrooms[0]` header with "0 niños" and the SPEC 02 messages when nothing is shown.
   - Validate: lint, tsc and build pass. `/kids` is unchanged with the sample data. With a temporary edit (reverted) that moves Olivia to `classroom-lunas`, a "SALA LUNAS · 1 niño" section appears after Soles ("7 niños"), "olivia" shows only the Lunas section, and "zzz" shows the single "SALA SOLES · 0 niños" header and the no-match message.
   - _Requirements: 6.2, 6.3, 6.4, 6.5_
 
-- [ ] 3. Add the form parser `lib/child-form.ts`
+- [x] 3. Add the form parser `lib/child-form.ts`
   - Create `ChildFormInput`, `ChildFormError`, `ChildFormErrors`, `NewChild`, `readChildForm`, `parseChildForm`, `buildChild` and `AVATAR_COLORS`, as in the design (name normalization, `d/m/aaaa` parsing with real-date check, future and 6-year bounds, allergy split and dedupe, notes → `null`, avatar rotation, `enrolledOn` = today).
   - Validate: lint and tsc pass. A one-off `npx tsx -e` script runs every case listed under **Testing strategy → Logic check** in the design with `today = "2026-10-11"`, and all of them match.
   - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.8, 4.3, 4.4, 4.6, 4.7, 5.4_
